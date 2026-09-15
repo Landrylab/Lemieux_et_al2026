@@ -1,0 +1,13 @@
+pool,family,pos_value,deg_value,top_label
+P4,363,3,W,top1
+P4,363,3,Y,top2
+P4,363,6,I,top1
+P4,363,6,M,top2
+P5,366,3,K,top1
+P5,366,3,Q,top2
+P5,366,7,E,top1
+P5,366,7,L,top2
+P6,385,2,D,top1
+P6,385,2,A,top2
+P6,385,5,V,top1
+P6,385,5,H,top2
