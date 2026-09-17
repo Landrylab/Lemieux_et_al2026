@@ -1,6 +1,6 @@
 # release
 
-Computational analysis accompanying [citation].
+Computational analysis accompanying Lemieux et al, 2026*.
 
 ## Layout
 
