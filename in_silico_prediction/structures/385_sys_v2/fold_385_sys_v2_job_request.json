@@ -1,0 +1,25 @@
+[{
+ "name": "385-sys-v2",
+ "modelSeeds": [
+  "569432009"
+ ],
+ "sequences": [
+  {
+   "proteinChain": {
+    "sequence": "MPHSVTLRGPSPWGFRLVGGRDFSAPLTISRVHAGSKAALAALCPGDLIQAINGESTELMTHLEAQNRIKGCHDHLTLSVSRPEGRSW",
+    "count": 1,
+    "useStructureTemplate": true
+   }
+  },
+  {
+   "proteinChain": {
+    "sequence": "RRRLHESPWL",
+    "count": 1,
+    "useStructureTemplate": true
+   }
+  }
+ ],
+ "dialect": "alphafoldserver",
+ "version": 3
+}
+]

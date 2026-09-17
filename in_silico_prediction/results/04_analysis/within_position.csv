@@ -1,0 +1,7 @@
+family,method,n,spearman_pooled,spearman_within_position
+363,flexddg,190,-0.6599,-0.0954
+363,foldx,190,-0.6786,-0.0729
+366,flexddg,189,-0.4501,-0.1799
+366,foldx,189,-0.2785,-0.2094
+385,flexddg,190,-0.5607,-0.1425
+385,foldx,190,-0.5545,-0.2139

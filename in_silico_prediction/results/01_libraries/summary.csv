@@ -1,0 +1,4 @@
+family,reference,length,input_rows,kept,n_mut_1,n_mut_2,dropped_stop,dropped_nonstandard,dropped_length,dropped_reference,repeated_measurements,ppi_min,ppi_max
+363,SGRFWFSDWL,10,617,551,190,361,49,0,0,16,1,0.104375,0.951994
+366,SKVRVFLGWF,10,590,521,189,332,48,0,0,16,5,0.052814,0.960541
+385,RRRLHESPWL,10,617,548,190,358,49,0,0,20,0,0.337924,0.983364

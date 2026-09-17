@@ -1,0 +1,25 @@
+[{
+ "name": "363-sys-v2",
+ "modelSeeds": [
+  "1598941646"
+ ],
+ "sequences": [
+  {
+   "proteinChain": {
+    "sequence": "SMKLVKFRKGDSVGLRLAGGNDVGIFVAGVLEDSPAAKEGLEEGDQILRVNNVDFTNIIREEAVLFLLDLPKGEEVTILAQK",
+    "count": 1,
+    "useStructureTemplate": true
+   }
+  },
+  {
+   "proteinChain": {
+    "sequence": "SGRFWFSDWL",
+    "count": 1,
+    "useStructureTemplate": true
+   }
+  }
+ ],
+ "dialect": "alphafoldserver",
+ "version": 3
+}
+]

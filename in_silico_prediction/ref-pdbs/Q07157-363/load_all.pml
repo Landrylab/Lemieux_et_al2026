@@ -1,0 +1,24 @@
+# pymol load_all.pml
+bg_color white
+load 2H2B.cif, 2H2B
+load 2H2C.cif, 2H2C
+load 2H3M.cif, 2H3M
+load 2JWE.cif, 2JWE
+load 2KXR.cif, 2KXR
+load 2KXS.cif, 2KXS
+load 2RCZ.cif, 2RCZ
+load 3CYY.cif, 3CYY
+load 3LH5.cif, 3LH5
+load 3SHU.cif, 3SHU
+load 3SHW.cif, 3SHW
+load 3TSV.cif, 3TSV
+load 3TSW.cif, 3TSW
+load 3TSZ.cif, 3TSZ
+load 4OEO.cif, 4OEO
+load 4OEP.cif, 4OEP
+load 4Q2Q.cif, 4Q2Q
+load 4YYX.cif, 4YYX
+load 9HM2.cif, 9HM2
+load AF-Q07157-F1-model_v6.cif, AF-Q07157-F1-model_v6
+load AF-Q07157-2-F1-model_v6.cif, AF-Q07157-2-F1-model_v6
+load AF-Q07157-alphafill.cif, AF-Q07157-alphafill

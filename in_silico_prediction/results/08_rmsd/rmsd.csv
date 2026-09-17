@@ -1,0 +1,4 @@
+family,model,pdb,ref_chain,rmsd_all,n_all,rmsd_refined,n_refined,n_model,n_exp,ref_pep_chain,pep_source,pep_rmsd_placed,pep_rmsd_shape,n_pep,n_pep_model,n_pep_exp,pep_seq_model,pep_seq_xray,pep_resi_xray,pep_matched_model,pep_matched_xray,pep_note,engine,model_file,ref_file
+363,0,4Q2Q,A,0.811,82,0.373,70,82,106,sym:last6,symmate05000000 resi 510-515,0.168,0.168,6,10,6,SGRFWFSDWL,WFSDWL,510-515,,,,pymol,fold_363_sys_v2_model_0.cif,4Q2Q.cif
+366,0,3KZD,A,0.711,84,0.426,75,91,103,,,,,,,,,,,,,,pymol,fold_366_sys_v2_model_0.cif,3KZD.cif
+385,0,4Q2O,A,0.5,83,0.199,63,88,98,B,,0.121,0.121,5,10,98,RRRLHESPWL,GSHMPHSVTLRGPSPWGFRLVGGRDFSAPLTISRVHAGSKAALAALCPGDLIQAINGESTELMTHLEAQNRIKGCHDHLTLSVSRPEAAGGGVESPWL,-2-95,,,,pymol,fold_385_sys_v2_model_0.cif,4Q2O.cif
