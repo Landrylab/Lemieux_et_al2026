@@ -6,10 +6,10 @@ library(tidyverse)
 library(ggpubr)
 library(magrittr)
 
-source('~/PL_projects/PL_papers/PPI_optimization_paper/code/functions.R')
+source('~/PL_projects/PL_papers/PPI_optimization_paper/Lemieux_et_al2026/code/functions.R')
 
 # set working directory
-setwd('~/PL_projects/PL_papers/PPI_optimization_paper/data/PCA1/')
+setwd('~/PL_projects/PL_papers/PPI_optimization_paper/Lemieux_et_al2026/data/PCA1/')
 
 # import data
 ppi_data <- read_csv('ppi_signif_score.csv')
@@ -68,7 +68,7 @@ single_vs_double%>%
   dplyr::select(aa_seq.double, family, s1, s2, double)%>%
   pivot_longer(values_to = 'diff_score', cols = c(s1, s2, double), names_to = 'mutant')%>%
   ungroup()%>%
-  select(aa_seq.double, diff_score, mutant)%>%
+  dplyr::select(aa_seq.double, diff_score, mutant, family)%>%
   unique()->dist_diff
 
 ggplot(dist_diff)+
@@ -128,7 +128,7 @@ single_vs_double%>%
 
 
 saveRDS(FigSAdditivity, '~/PL_projects/PL_papers/PPI_optimization_paper/figures/PCA1/Supp_additivity.rds')
-ggsave('~/PL_projects/PL_papers/PPI_optimization_paper/figures/PCA1/Supp_additivity.png', FigSAdditivity, 
+ggsave('~/PL_projects/PL_papers/PPI_optimization_paper/figures/supplementary/FigS4_additivity.svg', FigSAdditivity, 
        width = 8, height = 6)
 
 

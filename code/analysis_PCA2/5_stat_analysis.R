@@ -333,7 +333,6 @@ for (i in 1:length(aa_seq)) {
 
 
 
-
 aa_prop<-tibble::tibble(aa  = c( 'R', 'H', 'K', 'D', 'E', 'S', 'T', 'N', 'Q',  'A', 'V', 'I', 'L', 'M', 'F', 'Y','W',  'C', 'G', 'P'))
 
 aa_prop%<>%
@@ -528,9 +527,10 @@ ggplot(size_sub, aes(x = type_size, fill = type_sub_2, pattern =type_sub_2))+
     fill ='white', 
     position = position_dodge2(preserve = 'single'))+
   xlab('aa size')+
+  scale_x_discrete(limits =c('small', 'medium', 'large'))+
   t+
-  scale_pattern_manual(values = c( "crosshatch", 'none'), 
-                       labels = c(expression(paste('PWM'[max])), 'stronger pep.'))+
+  scale_pattern_manual(values = c('none',"crosshatch"), 
+                       labels = c('stronger pep.', expression(paste('PWM'[max]))))+
   guides(pattern = guide_legend(title = '', position = 'bottom'))->size_prop
 
 

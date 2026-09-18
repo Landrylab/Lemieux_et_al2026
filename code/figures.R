@@ -386,8 +386,10 @@ plot_grid(Fig4ABCD, FigEH, nrow = 2, rel_heights = c(1, 1.2))
 
 # Figure S availability
 
-SB<-readRDS('~/PL_projects/PL_papers/PPI_optimization_paper/figures/PCA2/med_stop_position_effect_avail.rds')
-SA<-readRDS( '~/PL_projects/PL_papers/PPI_optimization_paper/figures/PCA2/position_effect_avail.rds')
+SB<-readRDS('~/PL_projects/PL_papers/PPI_optimization_paper/figures/PCA2/med_stop_position_effect_avail.rds')+
+  ylab('availability score')
+SA<-readRDS( '~/PL_projects/PL_papers/PPI_optimization_paper/figures/PCA2/position_effect_avail.rds')+
+  guides(fill =guide_colorbar(title='availability\nscore'))
 SC<-readRDS('~/PL_projects/PL_papers/PPI_optimization_paper/figures/PCA2/avail_vs_hydro_all.rds')
 
 topS<-
@@ -399,7 +401,7 @@ S_avail<-
 plot_grid(topS, SC, nrow = 2, rel_heights = c(1, 0.6), labels = c('', 'C'), 
           label_fontface = 'plain', label_size = 14)
 
-ggsave(S_avail, filename ='~/PL_projects/PL_papers/PPI_optimization_paper/figures/PCA2/Supp_Avail.svg', 
+ggsave(S_avail, filename ='~/PL_projects/PL_papers/PPI_optimization_paper/figures/supplementary/FigS17.svg', 
        width = 10, height = 6)
 
 
@@ -442,8 +444,8 @@ plot_grid(top_FS, sel_coef_timepoint, norm_sel_filt, nrow = 3, align = 'v', axis
           labels = c('', 'B', 'D'), 
           label_fontface = 'plain', label_size = 14)->FigS_PCA2_process
 
-#ggsave(FigS_PCA2_process, filename ='~/PL_projects/PL_papers/PPI_optimization_paper/figures/supplementary/FigS5.png', 
- #      width = 9, height =10)
+ggsave(FigS_PCA2_process, filename ='~/PL_projects/PL_papers/PPI_optimization_paper/figures/supplementary/FigS5.svg', 
+       width = 9, height =10)
 
 
 # Figure S : replicability before vs after filtering
@@ -500,7 +502,10 @@ ggsave(filter_MTX, filename = '~/PL_projects/PL_papers/PPI_optimization_paper/fi
 signif_count<-
 readRDS('~/PL_projects/PL_papers/PPI_optimization_paper/figures/PCA2/count_signif.rds')
 stat_comp<-
-readRDS('~/PL_projects/PL_papers/PPI_optimization_paper/figures/PCA2/stat_sel_coef_20_filter.rds')
+readRDS('~/PL_projects/PL_papers/PPI_optimization_paper/figures/PCA2/stat_sel_coef_20_filter.rds')+
+  xlab('peptide family')+
+  scale_alpha_manual(values = c(0.3, 1,1))
+
 PWM_comp<-
 readRDS('~/PL_projects/PL_papers/PPI_optimization_paper/figures/PCA2/PWM_max_vs_variant.rds')
 
@@ -508,7 +513,7 @@ plot_grid(PWM_comp, stat_comp, signif_count, ncol = 3,
           labels = c('A', 'B', 'C'), 
           label_fontface = 'plain', label_size = 14)-> stat_fig
 
-ggsave(stat_fig, filename = '~/PL_projects/PL_papers/PPI_optimization_paper/figures/supplementary/FigS7.png', 
+ggsave(stat_fig, filename = '~/PL_projects/PL_papers/PPI_optimization_paper/figures/supplementary/FigS7.svg', 
        width = 10, height = 5)
 
 
@@ -532,7 +537,9 @@ plot_grid(max_val+
 
 plot_grid(max_val+
             ylab('PPI signal\n(mean corrected AUC)')+
-            theme(legend.position = 'none'),
+            xlab('F[3]-peptide')+
+            theme(legend.position = 'none', 
+                  axis.text.x = element_text(vjust = 0.5)),
           val_screen+
             theme(legend.position = 'bottom'), nrow = 2, align = 'v', axis = 'l', 
           labels = c('A', 'C'), 
@@ -540,15 +547,19 @@ plot_grid(max_val+
 
 
 plot_grid( spe_val+
-             ylab('PPI signal\n(mean corrected AUC)'), val_avail, 
+             ylab('PPI signal\n(mean corrected AUC)')+
+             xlab('F[3]-peptide')+
+             theme( axis.text.x = element_text(vjust = 0.5), 
+                    legend.position = 'none'),
+           val_avail, 
            align = 'v', axis = 'l', nrow =2,
            labels = c('B', 'D'), 
            label_fontface = 'plain', label_size = 14)->rigth
 
 
-plot_grid(left, rigth, rel_widths = c(1, 0.8))-> SuppVal
+plot_grid(left, rigth, rel_widths = c(1, 0.75))-> SuppVal
 
-ggsave('~/PL_projects/PL_papers/PPI_optimization_paper/figures/validation/Supp_validation_gc.png',
+ggsave('~/PL_projects/PL_papers/PPI_optimization_paper/figures/supplementary/Supp_validation_gc.svg',
        width = 14, height =8)
 
 

@@ -11,11 +11,11 @@ library(ggExtra)
 library(jsonlite)
 library("ggsci")
 
-source('~/PL_projects/PL_papers/PPI_optimization_paper/code/functions.R')
+source('~/PL_projects/PL_papers/PPI_optimization_paper/Lemieux_et_al2026/code/functions.R')
 
 # set working directory
 
-setwd('~/PL_projects/PL_papers/PPI_optimization_paper/data/PCA1/')
+setwd('~/PL_projects/PL_papers/PPI_optimization_paper/Lemieux_et_al2026/data/PCA1/')
 
 # import selection coefficient
 med_ppi <- read_csv('med_ppi_score.csv')
@@ -240,7 +240,7 @@ med_norm%>%
   filter(PBD !='PBD 366')%>%
   ggplot()+
   facet_wrap(vars(PBD))+
-  geom_smooth(aes(x= rel_PWM_score, y = med_norm), color='black', fill = 'grey75', method = 'lm')+
+  #geom_smooth(aes(x= rel_PWM_score, y = med_norm), color='black', fill = 'grey75', method = 'loess')+
   geom_hline(data = med_norm[med_norm$max & !(med_norm$PBD %in% c('reference', 'PBD 366')), ],
              aes(yintercept = med_norm), 
              color = 'grey45', linetype = 'dashed')+
@@ -256,14 +256,14 @@ med_norm%>%
   #theme(legend.position = 'none')+
   guides(color = guide_legend(nrow = 1, position = 'bottom', title = ''), 
          shape = 'none', 
-         alpha = 'none')#-> figS_comp_PWM
+         alpha = 'none')-> figS_comp_PWM
 
 write_csv(med_norm, '~/PL_projects/PL_papers/PPI_optimization_paper/data/PCA1/PWM_scores.csv')
 med_norm<-read_csv('~/PL_projects/PL_papers/PPI_optimization_paper/data/PCA1/PWM_scores.csv')
 
 saveRDS(figS_comp_PWM, '~/PL_projects/PL_papers/PPI_optimization_paper/figures/PCA1/Supp_comp_with_PWM_exp1.rds')
 
-ggsave('~/PL_projects/PL_papers/PPI_optimization_paper/figures/PCA1/Supp_comp_with_PWM_exp1.png', figS_comp_PWM,
+ggsave('~/PL_projects/PL_papers/PPI_optimization_paper/figures/supplementary/FigS5_PWM_exp1.svg', figS_comp_PWM,
        width = 8, height = 5)
 
 med_norm%>%

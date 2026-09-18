@@ -7,8 +7,8 @@ library(rstatix)
 library(magrittr)
 
 
-setwd('~/PL_projects/PL_papers/PPI_optimization_paper/data/04_analysis/')
-source('~/PL_projects/PL_papers/PPI_optimization_paper/code/functions.R')
+setwd('~/PL_projects/PL_papers/PPI_optimization_paper/Lemieux_et_al2026/data/validation/')
+source('~/PL_projects/PL_papers/PPI_optimization_paper/Lemieux_et_al2026/code/functions.R')
 
 all_ddg<-
   read_csv('all_ddg.csv')
@@ -46,7 +46,7 @@ ggplot()+
            cor.coef.name = 'rho', p.digits = 3, label.x = 5,  size = 2.5)+
   scale_color_manual(values = c( '#4e67c8ff', 'grey', '#373737'))+
   scale_shape_manual(values = c(19,1,1))+
-  scale_alpha_manual(values = c(1,0.3, 0.3))+
+  scale_alpha_manual(values = c(1,0.3, 1))+
   geom_point(data = comp_ddg_exp[comp_ddg_exp$peptide_max, ], 
              aes(ddg_binding, med_norm), color ='black')+
   xlab(expression(paste(Delta, Delta, 'G binding (foldX)')))+
@@ -163,10 +163,10 @@ fisher_test(xtab = f_matrix, alternative = 'greater')
 # p-value = 0.00258, signif association
 
 opt_ddg<-
-  read_csv('../04_analysis-batch2/all_ddg.csv')
+  read_csv('opt_ddg.csv')
 
 gc_opt<-
-  read_csv('~/PL_projects/PL_papers/PPI_optimization_paper/data/validation/gc_score.csv')
+  read_csv('~/PL_projects/PL_papers/PPI_optimization_paper/Lemieux_et_al2026/data/validation/gc_score.csv')
 
 
 opt_ddg%<>%

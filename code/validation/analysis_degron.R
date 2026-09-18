@@ -1,8 +1,8 @@
 # AUTHOR : Pascale Lemieux
 # compare degronopedia to peptide sequences screened with DHFR PCA
 
-setwd('~/PL_projects/PL_papers/PPI_optimization_paper/data/')
-source('~/PL_projects/PL_papers/PPI_optimization_paper/code/functions.R')
+setwd('~/PL_projects/PL_papers/PPI_optimization_paper/Lemieux_et_al2026/data/')
+source('~/PL_projects/PL_papers/PPI_optimization_paper/Lemieux_et_al2026/code/functions.R')
 
 
 degron<-
@@ -16,13 +16,13 @@ degron%>%
 
 # import median scores of the July2025 experiment (single mutant availability)
 specificity <- 
-  read_csv('~/PL_projects/PL_papers/PPI_optimization_paper/data/PCA2/signif_score_welch20_filter.csv')
+  read_csv('~/PL_projects/PL_papers/PPI_optimization_paper/Lemieux_et_al2026/data/PCA2/signif_score_welch20_filter.csv')
 
 avail_screen2 <- subset(specificity, pool == 'P1' & condition == 'MTX')
 
 # import the scores from the February2025 experiment (double mutant availability)
 avail <- 
-  read_csv('~/PL_projects/PL_papers/PPI_optimization_paper/data/PCA1/avail_signif_score.csv')
+  read_csv('~/PL_projects/PL_papers/PPI_optimization_paper/Lemieux_et_al2026/data/PCA1/avail_signif_score.csv')
 
 avail%<>%
   subset(family != 'reference')%>%
@@ -76,22 +76,29 @@ all_avail_single%>%
 
 # 467/3466
 all_avail_single$stop<-grepl(pattern = '*', all_avail_single$aa_seq, fixed = TRUE)
+all_avail_single$family<-factor(all_avail_single$family, 
+                                levels = c(152, 246, 250, 299, 363, 366, 385), 
+                                labels = c(152, 246, 250, 299, 363, 366, 385), ordered = TRUE)
 
-all_avail_single%>%
-  filter(!stop)%>%
+all_avail_single$family<-as.character(all_avail_single$family)
+sub_Deg<-all_avail_single[!is.na(all_avail_single$degron) & !all_avail_single$stop, ]
+sub<-all_avail_single[!all_avail_single$stop, ]
+
+#all_avail_single%>%
+ # dplyr::filter(!stop)%>%
 ggplot()+
-  #facet_grid(cols = vars(Degron_location))+
-  geom_jitter(data = all_avail_single[!is.na(all_avail_single$degron) & !all_avail_single$stop, ], 
-             aes(x=as.factor(family), y=med_norm, color = Degron_location), width = 0.1, shape =1)+
-  geom_violin(aes(as.factor(family), y=med_norm), fill ='transparent', quantile.colour = 'black', quantile.linetype = 'dashed')+
-  ylab('Avail. score')+
+  geom_jitter(data = sub_Deg, 
+             aes(x=family, y=med_norm, color = Degron_location), width = 0.1, shape =1)+
+  geom_violin(data=sub,
+              aes(x =family, y=med_norm), 
+              fill ='transparent', quantile.colour = 'black', quantile.linetype = 'dashed')+
+  ylab('availability score')+
   xlab('peptide family')+
   scale_color_manual(values = c('#a7ea52ff', '#ff8021ff'))+
   t+
   guides(color = guide_legend(title = 'degron type', position = 'bottom'))
 
-
-ggsave('~/PL_projects/PL_papers/PPI_optimization_paper/figures/supplementary/FigS_degron.png', 
+ggsave('~/PL_projects/PL_papers/PPI_optimization_paper/figures/supplementary/FigS16_degron.png', 
        width = 7, height = 4)
 
 all_avail_single%>%

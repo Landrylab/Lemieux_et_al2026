@@ -8,12 +8,12 @@ library(Biobase)
 library(ggnewscale)   
 
 # import custom functions
-source('~/PL_projects/PL_papers/PPI_optimization_paper/code/functions.R')
+source('~/PL_projects/PL_papers/PPI_optimization_paper/Lemieux_et_al2026/code/functions.R')
 
-setwd('~/PL_projects/PL_papers/PPI_optimization_paper/data/')
+setwd('~/PL_projects/PL_papers/PPI_optimization_paper/Lemieux_et_al2026/data/')
 
 # import significance scores
-signif_data <- read_csv('~/PL_projects/PL_papers/PPI_optimization_paper/data/PCA2/signif_score_welch20_filter.csv')
+signif_data <- read_csv('~/PL_projects/PL_papers/PPI_optimization_paper/Lemieux_et_al2026/data/PCA2/signif_score_welch20_filter.csv')
 
 # select single mutants from single and double variants
 signif_data%>%
@@ -161,7 +161,7 @@ unique()-> max_seq
 
 # function to generate the sequence variants with all the combination of background sequences and single mutants
 
-## here debug to compute the PCA score while generating the PCA opt peptide
+##  compute the PCA score while generating the PCA opt peptide
 get_variants_max_peptide<-
 function(pos_choice, max_seq) {
 
@@ -417,7 +417,7 @@ for(i in c('P4', 'P5', 'P6')) {
          #        aes(x = as.factor(pos), y =deg), color = 'black', fill = 'transparent', size = 0.8)+
         geom_tile(data = subset(test, !is.na(top_label)),
                   aes(x = as.factor(pos), y =deg, color = as.factor(top_label)), fill = 'transparent', size = 0.8)+
-        scale_color_manual(values = c('#a06ab4ff', '#6b3e7bff', 'transparent'))+
+        scale_color_manual(values = c('#8fba74ff', '#7b00a6ff', 'transparent'))+
        guides(color = guide_legend(title = ''))+
         new_scale_color() +
         geom_point(data = x, aes(x = as.factor(pos), y =max, color = med_group), shape = 4)+
@@ -558,9 +558,9 @@ P6<-
             P6_single_norm, nrow = 2, rel_heights = c(1, 1.2), 
             labels = c('A', 'B'), label_fontface = 'plain', label_size = 14)
 
-ggsave('~/PL_projects/PL_papers/PPI_optimization_paper/figures/supplementary/FigS6.png', P4, width=8, height = 7)
+ggsave('~/PL_projects/PL_papers/PPI_optimization_paper/figures/supplementary/FigS10.png', P4, width=8, height = 7)
 
-ggsave('~/PL_projects/PL_papers/PPI_optimization_paper/figures/supplementary/FigS7.png', P5, width=8, height = 7)
+ggsave('~/PL_projects/PL_papers/PPI_optimization_paper/figures/supplementary/FigS11.png', P5, width=8, height = 7)
 
-ggsave('~/PL_projects/PL_papers/PPI_optimization_paper/figures/supplementary/FigS8.png', P6, width=8, height = 7)
+ggsave('~/PL_projects/PL_papers/PPI_optimization_paper/figures/supplementary/FigS12.png', P6, width=8, height = 7)
 
