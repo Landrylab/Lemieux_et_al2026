@@ -14,7 +14,7 @@ source('~/PL_projects/PL_papers/PPI_optimization_paper/code/functions.R')
 
 # set working directory
 
-setwd('~/PL_projects/PL_papers/PPI_optimization_paper/data/PCA1/')
+setwd('~/PL_projects/PL_papers/PPI_optimization_paper/Lemieux_et_al2026/data/PCA1/')
 
 # import selection coefficient
 long_delta_avail <- read_csv('sel_coef_availability.csv')
@@ -284,21 +284,22 @@ ggplot(med_norm[med_norm$name != 'reference', ])+
   facet_wrap(vars(name), scales = 'free')+
   geom_tile(aes(deg1_order, deg2_order, fill = med_norm))+
   geom_point(data = max_pep_sel[max_pep_sel$name != 'reference', ], aes(deg1, deg2), 
-             color = 'black', shape = 4)+
+             color = 'red', shape = 4)+
   scale_fill_viridis_c(option = 'E')+
   t+
   xlab('deg. position 1')+
   ylab('deg. position 2')+
-  theme(legend.position.inside = c(0.5, 0.25))+
-  guides(fill = guide_colorbar(title = 'Avail.\nscore', 
+  theme(legend.position.inside = c(0.6, 0.25))+
+  guides(fill = guide_colorbar(title = 'availability\nscore', 
                                position = 'inside',
                                direction = 'horizontal',
+                               
                                theme = theme(
                                  legend.key.width  = unit(10, "lines"),
                                  legend.key.height = unit(1.5, "lines")
                                )))
 
-ggsave('~/PL_projects/PL_papers/PPI_optimization_paper/figures/PCA1/FigS6.png', FigS6, width = 8, height = 8)
+ggsave('~/PL_projects/PL_papers/PPI_optimization_paper/figures/supplementary/FigS15.png', FigS6, width = 8, height = 8)
 
 # Distribution of effect
 Fig3C <- 

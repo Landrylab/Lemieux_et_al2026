@@ -247,7 +247,7 @@ med_norm%>%
   geom_point(aes(x= rel_PWM_score, y = med_norm, color = binding, alpha = binding, shape = binding))+
   scale_shape_manual(values = c(1, 19, 1))+
   scale_color_manual(values = c('grey','#4e67c8ff' , '#373737' ))+
-  scale_alpha_manual(values =c(0.7, 1, 0.4))+
+  scale_alpha_manual(values =c(0.7, 1, 1))+
   stat_cor(aes(x= PWM_score, y = med_norm), method = 'spearman', size = 4, label.sep = '\n', 
            cor.coef.name = 'rho', label.x = 0.75 , label.y =0.8)+
   labs(x = 'PWM score', y = 'PPI score')+
@@ -277,7 +277,7 @@ med_norm%>%
   geom_point(aes(x= rel_PWM_score, y = med_norm, color = binding, alpha = binding, shape = binding))+
   scale_shape_manual(values = c(1, 19, 1))+
   scale_color_manual(values = c('grey','#4e67c8ff' , '#373737'))+
-  scale_alpha_manual(values =c(0.7, 1, 0.4))+
+  scale_alpha_manual(values =c(0.7, 1, 1))+
   stat_cor(aes(x= PWM_score, y = med_norm), method = 'spearman', size = 4, label.sep = '\n', 
            cor.coef.name = 'rho', label.x = 0.95 , label.y =0.3)+
   labs(x = 'PWM score', y = 'PPI score')+

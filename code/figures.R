@@ -574,5 +574,5 @@ plot_grid(aa_prop, size_prop,
           labels = c('A', 'B'), 
           label_fontface = 'plain', label_size = 14)->aa_prop_change
 
-ggsave(aa_prop_change, filename = '~/PL_projects/PL_papers/PPI_optimization_paper/figures/supplementary/aa_properties_change.png', 
+ggsave(aa_prop_change, filename = '~/PL_projects/PL_papers/PPI_optimization_paper/figures/supplementary/S13_aa_properties_change.svg', 
        height = 4, width = 6)
