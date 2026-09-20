@@ -18,6 +18,6 @@ Code and processed data for Lemieux et al. 2026* paper describing PBD-peptide in
         aggregated/  input for the code/analysis_PCA2/1_read_count_analysis.R 
       validation/   data obtained from the literature and validation experiments used in the validation/*.R scripts
       
-    in_silico_pred/
-        has its own READ.ME
+    in_silico_prediction/
+        has its own README.md
         
