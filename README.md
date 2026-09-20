@@ -1,4 +1,4 @@
-Code and processed data for Lemieux et al. 2026* paper describing PBD-peptide interaction strength by DHFR PCA. The raw sequencing reads are deposited as an SRA BioProject (PRJNA1499819), which will be kept private until the publication of this work. Please refer to the preprint on BioRxiv for the detailed methods. 
+Code and processed data for Lemieux et al. 2026* paper describing PBD-peptide interaction strength by DHFR PCA. The raw sequencing reads are deposited as an SRA BioProject (PRJNA1499819), which will be kept private until the publication of this work. Please refer to the preprint on BioRxiv (BIORXIV/2026/752983) for the detailed methods. 
 
 
 ## Layout
@@ -18,3 +18,6 @@ Code and processed data for Lemieux et al. 2026* paper describing PBD-peptide in
         aggregated/  input for the code/analysis_PCA2/1_read_count_analysis.R 
       validation/   data obtained from the literature and validation experiments used in the validation/*.R scripts
       
+    in_silico_pred/
+        has its own READ.ME
+        
